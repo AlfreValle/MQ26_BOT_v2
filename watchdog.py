@@ -142,7 +142,7 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="MQ26 BOT v2 — Watchdog")
     parser.add_argument(
         "--cmd", "-c",
-        default="python demo_trader.py --capital 2139 --symbol AUDUSD NZDUSD GBPUSD XAUUSD BTCUSD",
+        default=".venv\\Scripts\\python.exe demo_trader.py --capital 2139 --symbol BTCUSD XAUUSD AUDUSD NZDUSD ETHUSD GBPUSD EURUSD AUDJPY",
         help="Comando a monitorear",
     )
     args = parser.parse_args()

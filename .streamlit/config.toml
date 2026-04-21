@@ -9,3 +9,5 @@ font                = "monospace"
 [server]
 port = 8504
 headless = false
+# Evita importar el paquete "watchdog": en la raíz existe watchdog.py del bot y sombrea el paquete.
+fileWatcherType = "poll"

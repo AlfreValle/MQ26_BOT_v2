@@ -361,6 +361,19 @@ class DemoTrader:
         # Inicializar portfolio desde balance real — evita kill switch por mismatch
         self._init_portfolio_from_mt5()
 
+        # #92 — Spread Calibration: registrar spreads reales al arranque para
+        # verificar que los umbrales configurados son adecuados para la cuenta live
+        logger.info("=== SPREADS EN VIVO (arranque) ===")
+        for _sym in self.symbols:
+            try:
+                _sp_ok, _sp_val = self.connector.check_spread(_sym)
+                _sp_max = self.connector._MAX_SPREAD.get(_sym, "?")
+                _sp_status = "OK" if _sp_ok else "ALTO"
+                logger.info(f"  {_sym:10s}: {_sp_val:6.1f} pips  (max={_sp_max})  [{_sp_status}]")
+            except Exception as _sp_err:
+                logger.warning(f"  {_sym:10s}: error leyendo spread — {_sp_err}")
+        logger.info("=== fin spreads ===")
+
         # #44 — Recuperar estado previo si el bot se reinició hoy
         self._load_state()
 
@@ -621,6 +634,18 @@ class DemoTrader:
                 logger.error(f"Error evaluando {symbol}: {e}", exc_info=True)
 
         self._write_funnel_snapshot()
+
+        # #93 — Tick Summary: resumen de una línea para lectura rápida del log
+        _f = self._signal_funnel
+        logger.info(
+            f"Tick OK | evaluados={len(symbols_ranked)} "
+            f"| señales={_f['generated']} "
+            f"| ejecutadas={_f['executed']} "
+            f"| filtradas: session={_f['filtered_session']} "
+            f"spread={_f['filtered_spread']} "
+            f"staleness={_f['filtered_staleness']}"
+        )
+
         self._log_open_positions()
 
     # ─── Evaluación por símbolo ───────────────────────────────────────────────

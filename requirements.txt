@@ -22,6 +22,7 @@ MetaTrader5>=5.0.45
 # Visualización y reportes
 plotly>=5.18.0
 kaleido>=0.2.1               # Export de plots a PNG/PDF
+streamlit>=1.28.0            # dashboard.py
 
 # Notificaciones
 python-telegram-bot>=20.0
