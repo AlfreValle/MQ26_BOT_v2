@@ -102,6 +102,24 @@ git add governance/committee/dictamenes/
 git commit -m "audit: dictamen 2026-04-21 operación demo — aprobado"
 ```
 
+## Flujo de trabajo Git (ramas y PR)
+
+Al **empezar una sesión de cambios** (código, `audit.py`, plantillas, etc.), crear rama desde `main` **antes** de tocar archivos:
+
+```bash
+git checkout main
+git pull origin main
+git checkout -b feat/nombre-mejora
+# ... hacer cambios ...
+git add ...
+git commit -m "..."
+git push -u origin feat/nombre-mejora
+gh pr create --base main
+```
+
+- Sustituí `feat/nombre-mejora` por un nombre concreto (ej. `feat/signal-funnel`, `fix/mt5-spread`).
+- **GitHub CLI:** hace falta tener [`gh`](https://cli.github.com/) instalado y haber ejecutado `gh auth login` al menos una vez. Si no usás `gh`, abrí el PR a mano en GitHub después del `push`.
+
 ## Archivos en esta carpeta
 
 | Archivo | Propósito |
