@@ -30,12 +30,16 @@ streamlit run dashboard.py --server.port 8504```
 
 ## HORARIO OPERATIVO
 
-| Hora UTC | Hora Colombia (UTC-5) | Evento |
-|----------|----------------------|--------|
-| 00:00 – 07:00 | 19:00 – 02:00 | Sesión Asiática — S03 busca rangos |
-| 07:00 – 08:30 | 02:00 – 03:30 | **London Open — momento clave del bot** |
-| 12:00 – 16:00 | 07:00 – 11:00 | Overlap London/NY — mayor volatilidad |
-| 22:00 Vie | 17:00 Vie | Cierre mercado Forex hasta Dom 22:00 UTC |
+Referencia: **UTC** (reloj del bot y de los logs). **Colombia** = UTC−5. **Argentina** = **ART (UTC−3)** todo el año (sin horario de verano a abril 2026).
+
+| Hora UTC | Colombia (UTC−5) | Argentina (ART, UTC−3) | Evento |
+|----------|------------------|--------------------------|--------|
+| 00:00 – 07:00 | 19:00 – 02:00¹ | 21:00 – 04:00¹ | Sesión Asiática — S03 busca rangos |
+| 07:00 – 08:30 | 02:00 – 03:30 | 04:00 – 05:30 | **London Open — momento clave del bot** |
+| 12:00 – 16:00 | 07:00 – 11:00 | 09:00 – 13:00 | Overlap London/NY — mayor volatilidad |
+| 22:00 Vie | 17:00 Vie | 19:00 Vie | Cierre mercado Forex hasta Dom 22:00 UTC |
+
+¹ En la fila asiática, la hora local **inicial** cae en la **tarde/noche del día civil anterior** al día UTC del calendario (ej. lunes 00:00 UTC = domingo 21:00 en Buenos Aires).
 
 **BTCUSD y ETHUSD operan 24/7** — el bot los evalúa siempre.
 
