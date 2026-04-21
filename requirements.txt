@@ -1,0 +1,35 @@
+# MQ26 BOT v2 — Trading Bot Institucional
+# ==========================================
+
+# Data & Cálculo
+yfinance>=0.2.38
+pandas>=2.0.0
+numpy>=1.24.0
+pandas-ta>=0.3.14b          # 130+ indicadores técnicos
+
+# Configuración y validación
+pydantic>=2.0.0
+pydantic-settings>=2.0.0
+python-dotenv>=1.0.0
+
+# Scheduling y async
+APScheduler>=3.10.0
+aiohttp>=3.9.0
+
+# MT5 (solo Windows con MT5 instalado)
+MetaTrader5>=5.0.45
+
+# Visualización y reportes
+plotly>=5.18.0
+kaleido>=0.2.1               # Export de plots a PNG/PDF
+
+# Notificaciones
+python-telegram-bot>=20.0
+
+# Base de datos
+SQLAlchemy>=2.0.0
+
+# Desarrollo y testing
+pytest>=7.4.0
+pytest-cov>=4.0.0
+ruff>=0.1.0

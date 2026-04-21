@@ -1,0 +1,3 @@
+# Diffs más legibles en GitHub (documentación) y opcionalmente vía pandoc.
+*.md linguist-documentation=true
+*.md diff=pandoc

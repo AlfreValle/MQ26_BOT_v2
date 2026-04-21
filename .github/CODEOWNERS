@@ -1,0 +1,4 @@
+# Sustituir @TU_USUARIO_GITHUB por el Secretario del comité (o @org/equipo).
+# En GitHub: activar "Require review from Code Owners" en la rama protegida
+# para que estos cambios exijan aprobación explícita.
+governance/committee/dictamenes/** @AlfreValle 
